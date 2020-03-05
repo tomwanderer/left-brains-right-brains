@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Anton|Roboto:400,500,700&display=swap');
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +11,45 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  background-color: #273c75;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  border-radius: 10px;
+  padding: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.title {
+  text-align: center;
+  font-family: 'Anton', sans-serif;
+}
+
+.instruction {
+  text-align: justify;
+  text-justify: auto;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.btn-result {
+  text-align: center;
+  font-weight: bolder !important;
+}
+
+.reset-btn {
+  text-align: right;
+  margin-top: 20px;
+  margin-right: 55px;
 }
