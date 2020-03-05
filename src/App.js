@@ -18,7 +18,7 @@ class App extends Component {
     instruct: `For each question 1-20, please rate the item on a scale from 1 to 5 on how much you
     agree with the statement. For example, if you agree completely with question one put down a five by pressing the PLUS button to five, if you entirely disagree with it put down 1 by pressing the MINUS button to 1, if you are neutral or unsure put down a 3.`,
     querries: [
-      { id: 1, question: `I do not need others praise`, value: 1 },
+      { id: 1, question: 'I do not need others praise', value: 1 },
       {
         id: 2,
         question: `I would prefer a class in mathematics to a class in pottery`,
@@ -56,6 +56,23 @@ class App extends Component {
       { id: 20, question: `I am calm even in tense situations.`, value: 1 }
     ]
   };
+
+  componentDidMount() {
+    try {
+      const json = localStorage.getItem('querries');
+      const querries = JSON.parse(json);
+      if (querries) {
+        this.setState({ querries });
+      }
+    } catch (e) {}
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.querries !== this.state.querries) {
+      const json = JSON.stringify(this.state.querries);
+      localStorage.setItem('querries', json);
+    }
+  }
 
   handleReset = () => {
     const querries = this.state.querries.map(c => {
@@ -141,17 +158,6 @@ class App extends Component {
     this.setState({ selectedModal: undefined });
   };
 
-  componentDidMount() {
-    const json = localStorage.getItem('querries');
-    const querries = JSON.parse(json);
-    if (queries) {
-      this.setState({ querries });
-    }
-  }
-  componentDidUpdate() {
-    const json = JSON.stringify(this.state.querries);
-    localStorage.setItem('querries', json);
-  }
   render() {
     return (
       <div className="container">
